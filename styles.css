@@ -1,0 +1,97 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f3e5f5;
+    margin: 0;
+}
+
+.play-dude h1 {
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ba68c8;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    animation: swing 1s ease-in-out infinite;
+    /* Apply swing animation */
+    cursor: pointer;
+}
+
+.play-dude h1:hover {
+    color: #9c27b0;
+    /* Dark purple color on hover */
+}
+
+@keyframes swing {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.container {
+    text-align: center;
+    background-color: #ba68c8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Add shadow effect */
+}
+
+.winner-message {
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.title span {
+    font-size: 36px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    height: 65px;
+    width: 65px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s ease;
+    /* Smooth transition */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Brick effect */
+}
+
+.col:hover {
+    background-color: #9c27b0;
+    /* Dark purple hover color */
+    box-shadow: none;
+    /* Remove brick effect on hover */
+}
