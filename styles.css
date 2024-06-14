@@ -16,14 +16,11 @@ body {
     color: #ba68c8;
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     animation: swing 1s ease-in-out infinite;
-    /* Apply swing animation */
     cursor: pointer;
 }
 
 .play-dude h1:hover {
     color: #9c27b0;
-    
-    /* Dark purple color on hover */
 }
 
 @keyframes swing {
@@ -46,7 +43,6 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    /* Add shadow effect */
 }
 
 .winner-message {
@@ -85,14 +81,36 @@ body {
     cursor: pointer;
     background-color: white;
     transition: background-color 0.3s ease;
-    /* Smooth transition */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Brick effect */
 }
 
 .col:hover {
     background-color: #9c27b0;
-    /* Dark purple hover color */
     box-shadow: none;
-    /* Remove brick effect on hover */
+}
+
+.restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ba68c8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.restart-button:hover {
+    background-color: #9c27b0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scoreboard {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

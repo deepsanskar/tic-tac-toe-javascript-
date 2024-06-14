@@ -1,5 +1,7 @@
 let currentPlayer = "X";
 let arr = Array(9).fill(null);
+let playerXWins = 0;
+let playerOWins = 0;
 
 function checkWinner() {
     if (
@@ -13,13 +15,26 @@ function checkWinner() {
         (arr[2] !== null && arr[2] == arr[4] && arr[4] == arr[6])
     ) {
         document.getElementById('winnerMessage').innerText = `Winner is ${currentPlayer}`;
-        return;
+        if (currentPlayer === 'X') {
+            playerXWins++;
+        } else {
+            playerOWins++;
+        }
+        updateScores();
+        return true;
     }
 
     if (!arr.some((e) => e === null)) {
         document.getElementById('winnerMessage').innerText = `Draw!!`;
-        return;
+        return true; // Return true to indicate game is over (draw)
     }
+
+    return false; // Return false if no winner yet
+}
+
+function updateScores() {
+    document.getElementById('playerXScore').innerText = `Player X Wins: ${playerXWins}`;
+    document.getElementById('playerOScore').innerText = `Player O Wins: ${playerOWins}`;
 }
 
 function handleClick(el) {
@@ -27,6 +42,21 @@ function handleClick(el) {
     if (arr[id] !== null) return;
     arr[id] = currentPlayer;
     el.innerText = currentPlayer;
-    checkWinner();
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    if (checkWinner()) {
+        currentPlayer = "X"; // Reset current player for the new game
+        arr = Array(9).fill(null); // Reset the board
+        setTimeout(() => {
+            document.getElementById('winnerMessage').innerText = '';
+            document.querySelectorAll('.col').forEach(col => col.innerText = '');
+        }, 3000); // Clear message and board after 3 seconds
+    } else {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
 }
+
+document.getElementById('restartButton').addEventListener('click', () => {
+    playerXWins = 0;
+    playerOWins = 0;
+    updateScores();
+    location.reload();
+});
